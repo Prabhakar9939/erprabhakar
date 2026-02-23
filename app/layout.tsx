@@ -11,32 +11,23 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Quantonix | Software Development Company',
+    template: '%s | Quantonix',
   },
-  description: 'This is my portfolio.',
+  description:
+    'Quantonix is a software development company specializing in websites, mobile applications, SEO, and digital marketing.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Quantonix',
+    description:
+      'Responsive software development services for website development, mobile apps, SEO, and digital marketing.',
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'Quantonix',
     locale: 'en_US',
     type: 'website',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const cx = (...classes: string[]) => classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
   children,
@@ -52,10 +43,10 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      <body className="antialiased mx-auto mt-4 w-full max-w-6xl px-4 md:mt-8 md:px-6">
+        <main className="flex min-h-screen flex-col">
           <Navbar />
-          {children}
+          <div className="flex-1">{children}</div>
           <Footer />
           <Analytics />
           <SpeedInsights />
