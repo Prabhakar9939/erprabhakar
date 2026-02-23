@@ -1,40 +1,34 @@
 import Link from 'next/link'
 
-const navItems = {
-  '/': {
-    name: 'home',
-  },
-  '/blog': {
-    name: 'blog',
-  },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'deploy',
-  },
-}
+const navItems = [
+  { href: '/', name: 'Home' },
+  { href: '/about', name: 'About' },
+  { href: '/services', name: 'Services' },
+  { href: '/website-development', name: 'Web Dev' },
+  { href: '/mobile-application-development', name: 'Mobile Apps' },
+  { href: '/seo', name: 'SEO' },
+  { href: '/digital-marketing', name: 'Marketing' },
+  { href: '/portfolio', name: 'Portfolio' },
+  { href: '/process', name: 'Process' },
+  { href: '/contact', name: 'Contact' },
+]
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              )
-            })}
-          </div>
-        </nav>
-      </div>
-    </aside>
+    <header className="mb-8 md:mb-12">
+      <nav id="nav" className="rounded-2xl border border-neutral-200 p-3 dark:border-neutral-800">
+        <div className="flex flex-wrap items-center gap-1">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-lg px-3 py-2 text-sm text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </nav>
+    </header>
   )
 }
